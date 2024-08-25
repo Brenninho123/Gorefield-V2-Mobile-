@@ -10,7 +10,7 @@
 	<!--
 		CHANGE THE SAVE PATH & NAME FOR YOUR MOD HERE!
 	-->
-	<app save-path="YoshiCrafter29/CodenameEngine" save-name="save-default" mod-saves="true" />
+	<app save-path="brenninho/gorefield" save-name="save-default" mod-saves="true" />
 
 	<!--Switch Export with Unique ApplicationID and Icon-->
 	<set name="APP_ID" value="0x0100f6c013bbc000" />
