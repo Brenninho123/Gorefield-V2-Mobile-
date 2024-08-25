@@ -5,7 +5,7 @@
 		title="Gorefield V2" main="funkin.backend.system.Main"
 		file="Gorefield" packageName="com.brenninho.gorefield"
 		package="com.brenninho.gorefield"
-		version="0.1.0" company="Yoshman29" />
+		version="2.0.0" company="Yoshman29" />
 
 	<!--
 		CHANGE THE SAVE PATH & NAME FOR YOUR MOD HERE!
