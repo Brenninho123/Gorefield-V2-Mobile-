@@ -1,5 +1,9 @@
 #pragma header
 
+#ifdef GL_ES
+precision mediump float;
+#endif
+
 uniform float time;
 uniform float noiseIntensity;
 uniform float colorOffsetIntensity;
@@ -24,7 +28,7 @@ float verticalBar(float pos, float uvY, float offset)
 
 void main()
 {
-	vec2 uv = openfl_TextureCoordv.xy;
+    vec2 uv = gl_FragCoord.xy / vec2(1920.0, 1080.0); // Assuming a 640x480 resolution, adjust accordingly
     
     for (float i = 0.0; i < 0.71; i += 0.1313)
     {
@@ -41,10 +45,10 @@ void main()
     vec2 offsetR = vec2(0.006 * sin(time), 0.0) * colorOffsetIntensity;
     vec2 offsetG = vec2(0.0073 * (cos(time * 0.97)), 0.0) * colorOffsetIntensity;
     
-    float r = flixel_texture2D(bitmap, uv + offsetR).r;
-    float g = flixel_texture2D(bitmap, uv + offsetG).g;
-    float b = flixel_texture2D(bitmap, uv).b;
+    float r = texture2D(bitmap, uv + offsetR).r;
+    float g = texture2D(bitmap, uv + offsetG).g;
+    float b = texture2D(bitmap, uv).b;
 
-    vec4 tex = vec4(r, g, b, flixel_texture2D(bitmap, uv));
+    vec4 tex = vec4(r, g, b, texture2D(bitmap, uv).a);
     gl_FragColor = tex;
 }

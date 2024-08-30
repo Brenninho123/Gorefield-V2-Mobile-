@@ -25,14 +25,14 @@ float iHash( vec2 _v, vec2 _r ){
     float h01 = hash( vec2( floor( _v * _r + vec2( 0.0, 1.0 ) ) / _r ) );
     float h11 = hash( vec2( floor( _v * _r + vec2( 1.0, 1.0 ) ) / _r ) );
     vec2 ip = vec2( smoothstep( vec2( 0.0, 0.0 ), vec2( 1.0, 1.0 ), mod( _v*_r, 1. ) ) );
-    return ( h00 * ( 1.0 - ip.x ) + h10 * ip.x ) * ( 1.0 - ip.y ) + ( h01 * ( 1.0 - ip.x ) + h11 * ip.x ) * ip.y;
+    return ( h00 * ( 1. - ip.x ) + h10 * ip.x ) * ( 1. - ip.y ) + ( h01 * ( 1. - ip.x ) + h11 * ip.x ) * ip.y;
 }
 
 float noise( vec2 _v ){
-    float sum = 0.0;
+    float sum = 0.;
     for( int i=1; i<9; i++ )
     {
-        sum += iHash( _v + vec2( i ), vec2( 2.0 * pow( 2.0,  float( i )  ) ) ) / pow( 2., float( i ) );
+        sum += iHash( _v + vec2( i ), vec2( 2. * pow( 2., float( i ) ) ) ) / pow( 2., float( i ) );
     }
     return sum;
 }

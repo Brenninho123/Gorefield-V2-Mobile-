@@ -19,15 +19,15 @@ void main() {
     p_d.t += (time * 0.1) * speed;
 
     p_d = mod(p_d, 1.0);
-    vec4 dst_map_val = vec4(noise(p_d * vec2(50.0)));
+    vec4 dst_map_val = vec4(noise(p_d * vec2(50)));
     
     vec2 dst_offset = dst_map_val.xy;
     dst_offset -= vec2(.5,.5);
-    dst_offset *= 2.0;
+    dst_offset *= 2.;
     dst_offset *= (0.01 * strength);
 	
     //reduce effect towards Y top
-    dst_offset *= (1.0 - p_m.t);
+    dst_offset *= (1. - p_m.t);
     
     vec2 dist_tex_coord = p_m.st + dst_offset;
     gl_FragColor = flixel_texture2D(bitmap, dist_tex_coord); 
